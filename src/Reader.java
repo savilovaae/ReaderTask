@@ -10,13 +10,10 @@ public class Reader {
     BirthDate userBDay;
     int phoneNumber;
 
-    private final List<Book> userBooks;
-
     public Reader() {
         this.userFullName = "Unknown reader";
         this.faculty = "Unknown faculty";
         this.userBDay = new BirthDate();
-        this.userBooks = new ArrayList<Book>();
     }
 
     public Reader setUserFullName(String userFullName) {
@@ -44,25 +41,17 @@ public class Reader {
         return this;
     }
 
-    public void takeBook(Book book) {
-        userBooks.add(book);
-    }
-
-    public void returnBook(Book book) {
-        userBooks.remove(book);
-    }
-
     public void takeBook(String... bookNames) {
         StringBuilder bookList = new StringBuilder();
         for (int i = 0; i < bookNames.length - 1; i++) {
             bookList.append(bookNames[i]).append(", ");
         }
-        bookList.append(bookNames[bookList.length() - 1]).append(".");
-        System.out.println(String.format("%s took books: %s", userFullName, bookList.toString()));
+        bookList.append(bookNames[bookNames.length - 1]).append(". ");
+        System.out.println(String.format("%s took books: %s\n", userFullName, bookList.toString()));
     }
 
     public void takeBook(int amount) {
-        System.out.println(String.format("%s took %d books", userFullName, amount));
+        System.out.println(String.format("%s took %d books\n", userFullName, amount));
 
     }
 
@@ -71,12 +60,12 @@ public class Reader {
         for (int i = 0; i < books.length - 1; i++) {
             bookList.append(books[i].name).append(", ");
         }
-        bookList.append(books[books.length - 1]).append(".");
-        System.out.println(String.format("%s took books: %s", userFullName, bookList.toString()));
+        bookList.append(((books[books.length - 1])).name).append(".");
+        System.out.println(String.format("%s took books: %s\n", userFullName, bookList.toString()));
     }
 
     public void returnBook(int amount) {
-        System.out.println(String.format("%s returned %d books", userFullName, amount));
+        System.out.println(String.format("%s returned %d books\n", userFullName, amount));
     }
 
     public void returnBook(String... bookNames) {
@@ -84,8 +73,8 @@ public class Reader {
         for (int i = 0; i < bookNames.length - 1; i++) {
             bookList.append(bookNames[i]).append(", ");
         }
-        bookList.append(bookNames[bookList.length() - 1]).append(".");
-        System.out.println(String.format("%s returned books: %s", userFullName, bookList.toString()));
+        bookList.append(bookNames[bookNames.length - 1]).append(".");
+        System.out.println(String.format("%s returned books: %s\n", userFullName, bookList.toString()));
 
     }
 
@@ -94,7 +83,7 @@ public class Reader {
         for (int i = 0; i < books.length - 1; i++) {
             bookList.append(books[i].name).append(", ");
         }
-        bookList.append(books[books.length - 1]).append(".");
-        System.out.println(String.format("%s returned books: %s", userFullName, bookList.toString()));
+        bookList.append(((books[books.length - 1])).name).append(".");
+        System.out.println(String.format("%s returned books: %s\n", userFullName, bookList.toString()));
     }
 }
