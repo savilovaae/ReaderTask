@@ -72,6 +72,29 @@ public class Reader {
             bookList.append(books[i].name).append(", ");
         }
         bookList.append(books[books.length - 1]).append(".");
-        System.out.println(String.format("%s took books^ %s", userFullName, bookList.toString()));
+        System.out.println(String.format("%s took books: %s", userFullName, bookList.toString()));
+    }
+
+    public void returnBook(int amount) {
+        System.out.println(String.format("%s returned %d books", userFullName, amount));
+    }
+
+    public void returnBook(String... bookNames) {
+        StringBuilder bookList = new StringBuilder();
+        for (int i = 0; i < bookNames.length - 1; i++) {
+            bookList.append(bookNames[i]).append(", ");
+        }
+        bookList.append(bookNames[bookList.length() - 1]).append(".");
+        System.out.println(String.format("%s returned books: %s", userFullName, bookList.toString()));
+
+    }
+
+    public void returnBook(Book... books) {
+        StringBuilder bookList = new StringBuilder();
+        for (int i = 0; i < books.length - 1; i++) {
+            bookList.append(books[i].name).append(", ");
+        }
+        bookList.append(books[books.length - 1]).append(".");
+        System.out.println(String.format("%s returned books: %s", userFullName, bookList.toString()));
     }
 }

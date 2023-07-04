@@ -2,10 +2,10 @@ public class Book {
     String name;
 
     public Book() {
-        this.name = "Unknown genre";
+        this.name = "Unknown name";
     }
 
-    public Book setGenre(String name) {
+    public Book setName(String name) {
         this.name = name;
         return this;
     }
